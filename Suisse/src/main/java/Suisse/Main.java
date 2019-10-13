@@ -1,9 +1,9 @@
 package Suisse;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.TreeMap;
 
 import org.apache.commons.math3.util.Pair;
@@ -15,9 +15,10 @@ public class Main {
 		EventParser eventParser = new JsonEventParser();
 		
 		try {
-			Path file = Paths.get(ClassLoader.getSystemResource("logfile.txt").toURI());
-			eventParser.parse(file);
-		} catch (IOException | URISyntaxException e) {
+			InputStream in = Main.class.getClassLoader().getResourceAsStream("logfile.txt"); 
+			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+			eventParser.parse(reader);
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

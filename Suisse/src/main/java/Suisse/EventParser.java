@@ -1,8 +1,8 @@
 package Suisse;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.TreeSet;
 
 public interface EventParser {
@@ -13,7 +13,7 @@ public interface EventParser {
 	public static final String TYPE = "type";
 	public static final String HOST = "host";
 	
-	public void parse(Path file) throws IOException;
+	public void parse(BufferedReader reader) throws IOException;
 	
 	public TreeSet <Event> getStandardEvents();
 	

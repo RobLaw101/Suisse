@@ -1,8 +1,7 @@
 package Suisse;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
@@ -35,8 +34,8 @@ public class JsonEventParser implements EventParser {
 	}
 
 	@Override
-	public void parse(Path eventFile) throws IOException {
-		Stream<String> lines = Files.lines(eventFile);
+	public void parse(BufferedReader eventReader) throws IOException {
+		Stream<String> lines = eventReader.lines();
 		JSONParser eventParser = new JSONParser();
 		lines.forEach(line -> {
 			try {
