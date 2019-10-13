@@ -48,8 +48,9 @@ public class JsonEventParser implements EventParser {
 					applicationEvents.add( parseApplicationEvent (jsonEvent) );
 				}
 			} catch (ParseException e) {
-				lines.close();
 				e.printStackTrace();
+			} finally {
+				lines.close();
 			}
 		});
 	}
