@@ -21,6 +21,10 @@ public class StandardEventTest {
 		long duration = event1.calculateDuration(event2);
 		
 		assertEquals(3, duration);
+		
+		duration = event2.calculateDuration(event1);
+		
+		assertEquals(3, duration);
 	}
 	
 	@Test
@@ -33,9 +37,9 @@ public class StandardEventTest {
 	@Test
 	public void testEquality () {
 		
-		StandardEvent event3 = new StandardEvent("foo", 7, "STARTED");
+		StandardEvent event3 = new StandardEvent("foo", 7, "FINISHED");
 		
-		assertFalse(event1.equals(event3));
+		assertTrue(event1.equals(event3));
 		
 	}
 
